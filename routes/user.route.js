@@ -5,7 +5,7 @@
 
 const { Router } = require("express");
 const userRouter = Router();
-const {User} = require('../models/index')
+const {User, Show} = require('../models/index')
 
 userRouter.get('/', async(req,res) => {
   res.send( await User.findAll())
@@ -15,8 +15,9 @@ userRouter.get('/:id', async(req,res) => {
   res.send( await User.findByPk(req.params.id))
 })
 
-userRouter.get('/:id/shows', async(req,res) => {
-  res.send(User[req.params.userId])
+userRouter.get('/:id/watched', async(req,res) => {
+  //below is wrong code - it gets the show ID
+  // res.send( await Show.findAll({where: {userId: req.params.id}}) )
 })
 
 module.exports = userRouter
