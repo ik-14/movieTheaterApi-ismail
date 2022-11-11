@@ -28,6 +28,24 @@ showRouter.get('/genres/:genre', async(req,res) => {
   }))
 })
 
+showRouter.post('/', async(req,res) => {
+  const {userTitle} = req.body
+  const {userRating} = req.body
+  const {userGenre} = req.body
+  await Show.create({
+    title: userTitle,
+    rating: userRating,
+    genre: userGenre,
+    status: 'on-going'
+  })
+})
+
+showRouter.delete('/', async(req,res) => {
+  const {userInputId} = req.body
+  console.log(userInputId)
+  await Show.destroy({where: {id: userInputId}})
+})
+
 showRouter.put('/:id/watched', async(req,res) => {
   res.send( await Show.update({
     rating: req.body.rating
@@ -48,9 +66,9 @@ showRouter.put('/:id/updates', async(req,res) => {
   ))
 })
 
-showRouter.delete('/:id/delete', async(req,res) => {
-  await Show.destroy({where: {id: req.params.id}})
-  res.send('nice')
-})
+// showRouter.delete('/:id/delete', async(req,res) => {
+//   await Show.destroy({where: {id: req.params.id}})
+//   res.send('nice')
+// })
 
 module.exports = showRouter

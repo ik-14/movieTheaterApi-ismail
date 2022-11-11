@@ -16,8 +16,7 @@ userRouter.get('/:id', async(req,res) => {
 })
 
 userRouter.get('/:id/watched', async(req,res) => {
-  //below is wrong code - it gets the show ID
-  // res.send( await Show.findAll({where: {userId: req.params.id}}) )
+
 })
 
 module.exports = userRouter
