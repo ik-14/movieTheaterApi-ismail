@@ -9,20 +9,53 @@
   <title>shows project</title>
 </head>
 <body>
-  <h1 style="height: 7vh;  margin-bottom: 0; text-align: center;background: rgb(46,46,65);
-  background: linear-gradient(90deg, rgba(46,46,65,1) 0%, rgba(233,244,255,1) 100%);">hello from server</h1>
-  <div class="container-fluid" style="min-height: 93vh;">
+  <style>
+    body{
+      background-color: #17141d;
+    }
+    input{
+      border: 0;
+      outline: 0;
+      background-color: transparent;
+      border-bottom: 2px solid #E6E9EA;
+      color: #E6E9EA;
+      margin-bottom: 10px;
+    }
+
+    button{
+      border: 1px solid #e1dede;
+      border-radius: 25px;
+      outline: none;
+      background-color: #4B4A4E;
+      color: #e1dede;
+      cursor: pointer;
+      padding: 15px 30px;
+      transition: ease 0.5s;
+    }
+
+    button:hover {
+      box-shadow: inset 30vw 0 0 0 #ffa364;
+    }
+
+    .newDivs{
+      border-bottom: 2px solid #17141d;
+      margin-top: 5px;
+      background-color: #00000045;
+    }
+  </style>
+  <h1 style="height: 7vh;  margin-bottom: 0; text-align: center; color: #E6E9EA;">hello from server</h1>
+  <div class="container-fluid" style="min-height: 93vh; box-sizing: border-box;">
     <div class="row">
-    <div class="col" style="text-align: center; background-color: #2e2e41; height: 93vh; color: #e9f4ff;">
+    <div class="col" style="text-align: center; background-color: #312F36; height: 90vh; color: #E6E9EA; margin: 20px; border-radius: 15px;">
   <h2>name</h2>
   <input type="text" id="name-in">
   <h2>rating</h2>
-  <input type="text" id="rating-in">
+  <input type="number" id="rating-in">
   <h2>genre</h2>
   <input type="text" id="genre-in">
   <br>
   <br>
-  <button id="put">put</button>
+  <button id="put">post</button>
   <br>
   <br>
   <h2>delete</h2>
@@ -31,10 +64,11 @@
   <button id="delete">delete</button> 
   </div>
 
-  <div class="col" style="text-align: center; background-color: #e9f4ff; height: 93vh; color: #2e2e41;">
+  <div class="col" style="text-align: center; background-color: #312F36; min-height: 90vh; color: 
+  #E6E9EA; margin: 20px; border-radius: 15px;">
     <div class="row">
       <h1>get all movies</h1>
-      <button id="get">get</button>
+      <center><button id="get" style="width: 30vw;">get</button></center>
     </div>
     <div class="row">
   <section id="getting"></section>

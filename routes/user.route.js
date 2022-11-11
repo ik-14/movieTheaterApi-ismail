@@ -16,7 +16,7 @@ userRouter.get('/:id', async(req,res) => {
 })
 
 userRouter.get('/:id/watched', async(req,res) => {
-
+  res.send
 })
 
 module.exports = userRouter

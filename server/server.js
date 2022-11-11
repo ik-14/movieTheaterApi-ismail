@@ -4,7 +4,7 @@ const PORT = 3000
 const userRouter = require('../routes/user.route')
 const showRouter = require('../routes/show.route')
 const seed = require('../seed')
-const { User } = require('../models')
+// const { User } = require('../models')
 
 
 app.use(express.static('public'))
