@@ -40,13 +40,14 @@ showRouter.post('/', async(req,res) => {
   })
 })
 
+
 showRouter.delete('/', async(req,res) => {
-  const {userInputId} = req.body
-  console.log(userInputId)
-  await Show.destroy({where: {id: userInputId}})
+  const {userInputDelete} = req.body
+  console.log(userInputDelete)
+  await Show.destroy({where: {id: userInputDelete}})
 })
 
-showRouter.put('/:id/watched', async(req,res) => {
+showRouter.put('/:id/rating', async(req,res) => {
   res.send( await Show.update({
     rating: req.body.rating
   },
@@ -66,9 +67,5 @@ showRouter.put('/:id/updates', async(req,res) => {
   ))
 })
 
-// showRouter.delete('/:id/delete', async(req,res) => {
-//   await Show.destroy({where: {id: req.params.id}})
-//   res.send('nice')
-// })
 
 module.exports = showRouter

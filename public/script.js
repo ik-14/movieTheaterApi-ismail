@@ -12,15 +12,29 @@ get.addEventListener('click', async(req,res) => {
   const data = await response.json()
   data.forEach(currentItem => {
    console.log(currentItem)
+    const id = currentItem.id
     const title = currentItem.title
     const rating = currentItem.rating
     const div = document.createElement('div')
     div.classList.add('newDivs')
+    const h5 = document.createElement('h5')
+    h5.innerHTML = `Id: ${id}`
     const h4 = document.createElement('h4')
-    h4.innerHTML = title
+    h4.innerHTML = `Title: ${title}`
     const p = document.createElement('p')
-    p.innerHTML = rating
-    div.append(h4,p)
+    p.innerHTML = `Rating: ${rating}`
+    const delBtn = document.createElement('button')
+    delBtn.innerHTML = 'hello'
+    delBtn.addEventListener('click', async(req,res) => {
+      const response = await fetch('http://localhost:3000/shows', {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          userInputDelete: id
+        })
+      })
+    })
+    div.append(h5,h4,p,delBtn)
     section.append(div)
   });
 })
@@ -37,21 +51,6 @@ post.addEventListener('click', async(req,res) => {
       userTitle: nameInput.value,
       userRating: ratingInput.value,
       userGenre: genreInput.value
-    })
-  })
-})
-
-deleteBtn.addEventListener('click', async(req,res) => {
-
-  if (deleteInput.value == '') {
-    alert('please enter the id')
-    return 
-  }
-  const response = await fetch('http://localhost:3000/shows', {
-    method: 'DELETE',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      userInputId: deleteInput.value
     })
   })
 })
